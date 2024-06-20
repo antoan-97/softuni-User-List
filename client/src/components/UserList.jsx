@@ -6,6 +6,7 @@ export default function UserList(props) {
         <section className="card users-container">
             <Search />
             <UserListTable />
+            <button className="btn-add btn">Add new user</button>
         </section>
     );
 }
