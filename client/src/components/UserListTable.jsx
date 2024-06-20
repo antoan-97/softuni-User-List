@@ -2,10 +2,13 @@ import * as userService from '../services/userService';
 import { useEffect, useState } from 'react';
 
 import UserListItem from "./UserListItem";
+import CreateModal from './CreateModal';
 
 
 export default function Table() {
     const [users, setUsers] = useState([]);
+    const [showCreate,setShowCreate] = useState(false);
+    
 
     console.log(users);
 
@@ -18,6 +21,7 @@ export default function Table() {
 
     return (
         <div className="table-wrapper">
+           {showCreate && <CreateModal />}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}
