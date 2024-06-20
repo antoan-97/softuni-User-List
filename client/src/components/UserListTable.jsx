@@ -182,6 +182,7 @@ export default function Table() {
                     {/* Table row component */}
                     {users.map(user => (
                         <UserListItem
+                            key={user._id}
                             {...user}
                         />
                     ))}
