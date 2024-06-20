@@ -1,11 +1,11 @@
 import Search from "./Search";
-import Table from "./Teble";
+import UserListTable from "./UserListTable";
 
 export default function UserList(props) {
     return (
         <section className="card users-container">
             <Search />
-            <Table />
+            <UserListTable />
         </section>
     );
 }
