@@ -20,12 +20,17 @@ export default function Table() {
 
     const addClickHandler = () =>{
         setShowCreate(true);
+    };
+
+    const hideCreateModal = () =>{
+        setShowCreate(false);
+
     }
 
 
     return (
         <div className="table-wrapper">
-           {showCreate && <CreateModal />}
+           {showCreate && <CreateModal hideModal ={hideCreateModal} />}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}
