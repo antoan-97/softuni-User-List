@@ -1,9 +1,21 @@
 import * as userService from '../services/userService';
+import { useEffect, useState } from 'react';
 
 import UserListItem from "./UserListItem";
 
 
 export default function Table() {
+    const [users, setUsers] = useState([]);
+
+    console.log(users);
+
+    useEffect(() => {
+        userService.getAll()
+            .then(result => setUsers(result));
+            
+    }, []);
+
+
     return (
         <div className="table-wrapper">
             {/* Overlap components  */}
