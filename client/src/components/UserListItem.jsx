@@ -1,3 +1,5 @@
+import { formatDate } from "../utils/formatDate";
+
 export default function UserListItem({
     _id,
     firstName,
@@ -12,14 +14,13 @@ export default function UserListItem({
         <tr>
             <td>
                 <img
-                    src={imageUrl} alt={`$firstName}'s Profile'`} className="image"
-                />
+                    src={imageUrl} alt={`${firstName}'s Profile'`} className="image" />
             </td>
             <td>{firstName}</td>
             <td>{lastName}</td>
             <td>{email}</td>
             <td>{phoneNumber}</td>
-            <td>{createdAt}</td>
+            <td>{formatDate(createdAt)}</td>
             <td className="actions">
                 <button className="btn edit-btn" title="Edit">
                     <svg
