@@ -18,6 +18,10 @@ export default function Table() {
 
     }, []);
 
+    const addClickHandler = () =>{
+        setShowCreate(true);
+    }
+
 
     return (
         <div className="table-wrapper">
@@ -192,7 +196,7 @@ export default function Table() {
                     ))}
                 </tbody>
             </table>
-            <button className="btn-add btn">Add new user</button>
+            <button className="btn-add btn" onClick={addClickHandler}>Add new user</button>
 
         </div>
     );
