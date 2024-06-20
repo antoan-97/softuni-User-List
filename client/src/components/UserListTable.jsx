@@ -7,8 +7,8 @@ import CreateModal from './CreateModal';
 
 export default function Table() {
     const [users, setUsers] = useState([]);
-    const [showCreate,setShowCreate] = useState(false);
-    
+    const [showCreate, setShowCreate] = useState(false);
+
 
     console.log(users);
 
@@ -18,19 +18,36 @@ export default function Table() {
 
     }, []);
 
-    const addClickHandler = () =>{
+    const addClickHandler = () => {
         setShowCreate(true);
     };
 
-    const hideCreateModal = () =>{
+    const hideCreateModal = () => {
         setShowCreate(false);
 
+    };
+
+    const userCreateHandler = async (e) => {
+        //Stop from refresh
+        e.preventDefault();
+
+        //Get data from form data
+        const data = Object.fromEntries(new FormData(e.currentTarget));
+
+        //Create new user at the server
+        const newUser = await userService.create(data);
+
+        //Add new user to the state
+        setUsers(state => [...state, newUser])
+        console.log(newUser);
     }
 
 
     return (
         <div className="table-wrapper">
-           {showCreate && <CreateModal hideModal ={hideCreateModal} />}
+            {showCreate && <CreateModal
+                hideModal={hideCreateModal}
+                onUserCreate={userCreateHandler} />}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}
