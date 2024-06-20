@@ -1,4 +1,7 @@
+import * as userService from '../services/userService';
+
 import UserListItem from "./UserListItem";
+
 
 export default function Table() {
     return (
