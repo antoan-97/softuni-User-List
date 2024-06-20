@@ -12,7 +12,7 @@ export default function Table() {
     useEffect(() => {
         userService.getAll()
             .then(result => setUsers(result));
-            
+
     }, []);
 
 
@@ -180,7 +180,11 @@ export default function Table() {
                 </thead>
                 <tbody>
                     {/* Table row component */}
-                    <UserListItem />
+                    {users.map(user => (
+                        <UserListItem
+                            {...user}
+                        />
+                    ))}
                 </tbody>
             </table>
         </div>
