@@ -30,10 +30,7 @@ export default function Table() {
 
     };
 
-    const userInfoHandler = (userId) =>{
-       console.log(userId);
-       setShowInfo(true)
-    };
+  
 
     const userCreateHandler = async (e) => {
         //Stop from refresh
@@ -50,8 +47,10 @@ export default function Table() {
         console.log(newUser);
     }
 
-    const userInfoClickHandler = (userId) =>{
-        console.log(userId);
+    const userInfoClickHandler = async  (userId) =>{
+        const userDetails =  await userService.getOne(userId)
+
+       console.log(userDetails);
     }
 
     

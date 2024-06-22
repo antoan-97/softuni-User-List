@@ -15,6 +15,14 @@ export const getAll = async () => {
     }
 };
 
+export const getOne = async (userId) => {
+
+    const response = await fetch(`${baseUrl}/${userId}`);
+    const result =  await response.json()
+
+    return result
+}
+
 
 export const create = async (data) => {
     const body = {
@@ -33,9 +41,9 @@ export const create = async (data) => {
         }
     };
 
-    const resposne = await fetch(baseUrl,{
-        method:'POST',
-        headers:{
+    const resposne = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
             'Content-type': 'application/json',
         },
         body: JSON.stringify(body),
