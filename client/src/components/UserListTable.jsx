@@ -2,6 +2,7 @@ import * as userService from '../services/userService';
 import { useEffect, useState } from 'react';
 
 import UserListItem from "./UserListItem";
+import UserInfoModal from './UserInfoModal';
 import CreateModal from './CreateModal';
 
 
@@ -48,6 +49,9 @@ export default function Table() {
             {showCreate && <CreateModal
                 hideModal={hideCreateModal}
                 onUserCreate={userCreateHandler} />}
+
+            {showInfo && <UserInfoModal 
+                />}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}
