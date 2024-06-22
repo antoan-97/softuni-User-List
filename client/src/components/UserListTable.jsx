@@ -9,6 +9,7 @@ import CreateModal from './CreateModal';
 export default function Table() {
     const [users, setUsers] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
+    const [showInfo, setShowInfo] = useState(false)
 
 
     console.log(users);
@@ -28,6 +29,10 @@ export default function Table() {
 
     };
 
+    const userInfoHandler = (userId) =>{
+        setShowInfo(false)
+    };
+
     const userCreateHandler = async (e) => {
         //Stop from refresh
         e.preventDefault();
@@ -43,6 +48,8 @@ export default function Table() {
         console.log(newUser);
     }
 
+    
+
 
     return (
         <div className="table-wrapper">
@@ -51,7 +58,7 @@ export default function Table() {
                 onUserCreate={userCreateHandler} />}
 
             {showInfo && <UserInfoModal 
-                />}
+                onClose={userInfoHandler}/>}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}

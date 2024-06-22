@@ -1,12 +1,15 @@
-export default function UserInfoModal() {
+export default function UserInfoModal({
+    userId,
+    onClose
+}) {
     return (
         <div class="overlay">
-            <div class="backdrop"></div>
+            <div onClick={onClose} class="backdrop"></div>
             <div class="modal">
                 <div class="detail-container">
                     <header class="headers">
                         <h2>User Detail</h2>
-                        <button class="btn close">
+                        <button onClick={onClose} class="btn close">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
                                 class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                 <path fill="currentColor"
