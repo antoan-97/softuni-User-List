@@ -10,6 +10,7 @@ export default function Table() {
     const [users, setUsers] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
     const [showInfo, setShowInfo] = useState(false)
+    const [selectedUser, setSelectedUser] = useState(null)
 
 
     console.log(users);
@@ -48,9 +49,8 @@ export default function Table() {
     }
 
     const userInfoClickHandler = async  (userId) =>{
-        const userDetails =  await userService.getOne(userId)
-
-       console.log(userDetails);
+        setSelectedUser(userId)
+        setShowInfo(true)
     }
 
     
