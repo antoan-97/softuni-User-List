@@ -16,7 +16,8 @@ export default function Table() {
 
     useEffect(() => {
         userService.getAll()
-            .then(result => setUsers(result));
+            .then(result => setUsers(result))
+            .catch(error =>  console.log('Error fetching users:', error))
 
     }, []);
 
@@ -30,7 +31,8 @@ export default function Table() {
     };
 
     const userInfoHandler = (userId) =>{
-        setShowInfo(false)
+       console.log(userId);
+       setShowInfo(true)
     };
 
     const userCreateHandler = async (e) => {
@@ -48,6 +50,10 @@ export default function Table() {
         console.log(newUser);
     }
 
+    const userInfoClickHandler = (userId) =>{
+        console.log(userId);
+    }
+
     
 
 
@@ -58,7 +64,7 @@ export default function Table() {
                 onUserCreate={userCreateHandler} />}
 
             {showInfo && <UserInfoModal 
-                onClose={userInfoHandler}/>}
+                onClose={() => setShowInfo(false)}/>}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}
@@ -224,7 +230,14 @@ export default function Table() {
                     {users.map(user => (
                         <UserListItem
                             key={user._id}
-                            {...user}
+                            userId={user._id}
+                            createdAt={user.createdAt}
+                            email={user.email}
+                            firstName={user.firstName}
+                            imageUrl={user.imageUrl}
+                            lastName={user.lastName}
+                            phoneNumber={user.phoneNumber}
+                            onInfoClick={userInfoClickHandler}
                         />
                     ))}
                 </tbody>
