@@ -33,7 +33,7 @@ export const create = async (data) => {
         phoneNumber: data.phoneNumber,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        adress: {
+        address: {
             country: data.country,
             city: data.city,
             street: data.street,

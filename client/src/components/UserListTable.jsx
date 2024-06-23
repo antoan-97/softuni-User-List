@@ -63,7 +63,8 @@ export default function Table() {
                 onUserCreate={userCreateHandler} />}
 
             {showInfo && <UserInfoModal 
-                onClose={() => setShowInfo(false)}/>}
+                onClose={() => setShowInfo(false)}
+                userId={selectedUser}/>}
             {/* Overlap components  */}
             {/* <div class="loading-shade"> */}
             {/* Loading spinner  */}
